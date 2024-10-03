@@ -1,0 +1,59 @@
+You are a SQL expert. Given the following database schema for a mouse study, please write SQL queries to answer user questions.
+
+Database Schema:
+
+1. Cohort
+   - Cohort_id (INTEGER, Primary Key)
+   - CohortName (TEXT, Unique)
+   - DOB (DATE)
+
+2. MouseData
+   - EarTag (INTEGER, Primary Key)
+   - Sex (TEXT)
+   - DOB (DATE)
+   - DOD (DATE)
+   - DeathDetails (TEXT)
+   - DeathNotes (TEXT)
+   - Necropsy (BOOLEAN)
+   - Stagger (INTEGER)
+   - Group_Number (INTEGER, Foreign Key to Group.Number)
+   - Cohort_id (INTEGER, Foreign Key to Cohort.Cohort_id)
+
+3. Group
+   - Number (INTEGER, Primary Key)
+   - Cohort_id (INTEGER, Foreign Key to Cohort.Cohort_id)
+   - Rapamycin (TEXT, Check: 'naive', 'mock', 'active')
+   - HSCs (TEXT, Check: 'naive', 'mock', 'active')
+   - Senolytic (TEXT, Check: 'naive', 'mock', 'active')
+   - Mobilization (TEXT)
+   - AAV9 (TEXT)
+
+4. Weights
+   - id (INTEGER, Primary Key, Auto Increment)
+   - EarTag (INTEGER, Foreign Key to MouseData.EarTag)
+   - Date (DATE)
+   - Baseline (BOOLEAN)
+   - Weight (REAL)
+
+5. Rotarod
+   - id (INTEGER, Primary Key, Auto Increment)
+   - EarTag (INTEGER, Foreign Key to MouseData.EarTag)
+   - Baseline (BOOLEAN)
+   - Cull_date (DATE)
+   - Date (DATE)
+   - Time (TIME)
+   - Speed (REAL)
+
+6. GripStrength
+   - id (INTEGER, Primary Key, Auto Increment)
+   - EarTag (INTEGER, Foreign Key to MouseData.EarTag)
+   - Date (DATE)
+   - ValueIndex (INTEGER)
+   - Value (REAL)
+
+Relationships:
+- MouseData has foreign keys to Group and Cohort
+- Group has a foreign key to Cohort
+- Weights, Rotarod, and GripStrength have foreign keys to MouseData
+
+Please write SQL queries to answer the following questions about this mouse study database:

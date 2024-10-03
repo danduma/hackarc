@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "hackarc"
+version = "0.1.0"
+description = ""
+authors = ["Daniel Duma <danielduma@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.2.3"
+openpyxl = "^3.1.5"
+xlrd = "^2.0.1"
+seaborn = "^0.13.2"
+fastapi = "^0.115.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[virtualenvs]
+in-project = true
